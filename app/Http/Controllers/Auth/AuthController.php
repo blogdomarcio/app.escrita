@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Alert;
+Use Auth;
 
 class AuthController extends Controller
 {
@@ -71,10 +72,17 @@ class AuthController extends Controller
         if (auth()->attempt(['username' => $request->input('username'), 'password' => $request->input('password')]))
         {
             $user = auth()->user();
-            dd($user);
+        //    dd($user);
+             return redirect()->route('escritanet.principal');
         }else{
             Alert::error('Usuário ou senha inválidos! Tente Novamente', 'Oops!');
             return back()->with('error','your username and password are wrong.');
         }
+    }
+
+    public function logout()
+    {
+      Auth::logout();
+      return redirect()->route('escritanet.login');
     }
 }

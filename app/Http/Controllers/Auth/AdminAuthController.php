@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class AdminAuthController extends Controller
 {
@@ -70,9 +72,16 @@ class AdminAuthController extends Controller
         if (auth()->guard('admin')->attempt(['username' => $request->input('username'), 'password' => $request->input('password')]))
         {
             $user = auth()->guard('admin')->user();
-            dd($user);
+      //      dd($user);
+             return redirect()->route('admin.principal');
         }else{
             return back()->with('error','your username and password are wrong.');
         }
+    }
+
+    public function logout()
+    {
+      Auth::logout();
+      return redirect()->route('admin.login');
     }
 }

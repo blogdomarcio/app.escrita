@@ -2,17 +2,37 @@
 
 
 
-
 Route::group(['middleware' => ['web']], function () {
-    Route::get('escritanet/login', 'Auth\AuthController@webLogin');
-    Route::post('escritanet/login', ['as'=>'escritanet.login','uses'=>'Auth\AuthController@webLoginPost']);
-    Route::get('/admin/login', 'Auth\AdminAuthController@adminLogin');
-    Route::post('/admin/login', ['as'=>'admin.login','uses'=>'Auth\AdminAuthController@adminLoginPost']);
+
+
+
+	Route::get('escritanet/login', 'Auth\AuthController@webLogin');
+	Route::post('escritanet/login', ['as'=>'escritanet.login','uses'=>'Auth\AuthController@webLoginPost']);
+	Route::get('/admin/login', 'Auth\AdminAuthController@adminLogin');
+	Route::post('/admin/login', ['as'=>'admin.login','uses'=>'Auth\AdminAuthController@adminLoginPost']);
+});
+
+
+
+Route::group([ 'middleware' => ['auth:web']], function (){   
+
+	Route::get('/escritanet',['as'=>'escritanet.principal', 'uses'=>'EscritaNet\DashboardController@index']);
+
+	Route::get('/escritanet/logout', ['as'=>'escritanet.logout', 'uses'=>'Auth\AuthController@logout']);  
+
 });
 
 
 
 
+
+
+Route::group([ 'middleware' => ['auth:admin']], function (){
+
+	Route::get('/admin/logout', ['as'=>'admin.logout', 'uses'=>'Auth\AdminAuthController@logout']);   
+	Route::get('/admin',['as'=>'admin.principal', 'uses'=>'Admin\DashboardController@index']);
+
+});
 
 
 
@@ -38,33 +58,27 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
-   
+
 // Route::get('/escritanet/login', 'Escritanet\AuthController@webLogin');
 // Route::post('/escritanet/login', ['as'=>'escritanet.login','uses'=>'Escritanet\AuthController@webLoginPost']);
 
 
-  
+
 
 
 
 
 // ADMIN
 
- 
 
 
- 
+
+
 
 
 // ESCRITA NET
 
-// Route::get('/escritanet', function () {
-//     return view('escritanet');
-// });
 
-// Route::get('/escritanet/',['as' => 'escritanet.principal', function(){
-//     return view('escritanet.principal.index');
-// }]);
 
 
 // Route::get('/escritanet/login',['as' => 'escritanet.login', function(){
@@ -76,10 +90,10 @@ Route::group(['middleware' => ['web']], function () {
 
 // // SITE
 
-// Route::get('/', function () {
-//     return view('site');
-// });
+Route::get('/', function () {
+	return view('site');
+});
 
 
- 
- 
+
+
