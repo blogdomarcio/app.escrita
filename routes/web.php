@@ -4,8 +4,6 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-
-
 	Route::get('escritanet/login', 'Auth\AuthController@webLogin');
 	Route::post('escritanet/login', ['as'=>'escritanet.login','uses'=>'Auth\AuthController@webLoginPost']);
 	Route::get('/admin/login', 'Auth\AdminAuthController@adminLogin');
@@ -22,15 +20,13 @@ Route::group([ 'middleware' => ['auth:web']], function (){
 
 });
 
-
-
-
-
-
 Route::group([ 'middleware' => ['auth:admin']], function (){
 
 	Route::get('/admin/logout', ['as'=>'admin.logout', 'uses'=>'Auth\AdminAuthController@logout']);   
 	Route::get('/admin',['as'=>'admin.principal', 'uses'=>'Admin\DashboardController@index']);
+
+
+	Route::get('/admin/admin',['as'=>'admin.admin', 'uses'=>'Admin\AdminController@index']);
 
 });
 

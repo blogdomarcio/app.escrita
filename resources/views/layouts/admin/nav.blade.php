@@ -20,6 +20,7 @@
                         </small>
                     </a>
                 </div>
+            
 
                 <div class="navbar-buttons navbar-header pull-right" role="navigation">
                     <ul class="nav ace-nav">
@@ -113,6 +114,8 @@
                                 </li>
 
                                 <li class="dropdown-content">
+
+
                                     <ul class="dropdown-menu dropdown-navbar navbar-pink">
                                         <li>
                                             <a href="#">
@@ -184,7 +187,7 @@
                                     <ul class="dropdown-menu dropdown-navbar">
                                         <li>
                                             <a href="#" class="clearfix">
-                                                <img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+                                                <img src="{{ asset('assets/images/avatars/avatar.png')}}" class="msg-photo" alt="Alex's Avatar" />
                                                 <span class="msg-body">
                                                     <span class="msg-title">
                                                         <span class="blue">Alex:</span>
@@ -201,7 +204,7 @@
 
                                         <li>
                                             <a href="#" class="clearfix">
-                                                <img src="assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+                                                <img src="{{ asset('assets/images/avatars/avatar3.png')}}" class="msg-photo" alt="Susan's Avatar" />
                                                 <span class="msg-body">
                                                     <span class="msg-title">
                                                         <span class="blue">Susan:</span>
@@ -218,7 +221,7 @@
 
                                         <li>
                                             <a href="#" class="clearfix">
-                                                <img src="assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+                                                <img src="{{ asset('assets/images/avatars/avatar4.png')}}" class="msg-photo" alt="Bob's Avatar" />
                                                 <span class="msg-body">
                                                     <span class="msg-title">
                                                         <span class="blue">Bob:</span>
@@ -235,7 +238,7 @@
 
                                         <li>
                                             <a href="#" class="clearfix">
-                                                <img src="assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+                                                <img src="{{ asset('assets/images/avatars/avatar2.png')}}" class="msg-photo" alt="Kate's Avatar" />
                                                 <span class="msg-body">
                                                     <span class="msg-title">
                                                         <span class="blue">Kate:</span>
@@ -252,7 +255,7 @@
 
                                         <li>
                                             <a href="#" class="clearfix">
-                                                <img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+                                                <img src="{{ asset('assets/images/avatars/avatar5.png')}}" class="msg-photo" alt="Fred's Avatar" />
                                                 <span class="msg-body">
                                                     <span class="msg-title">
                                                         <span class="blue">Fred:</span>
@@ -280,10 +283,10 @@
 
                         <li class="light-blue dropdown-modal">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+                                <img class="nav-user-photo" src="{{ asset('assets/images/avatars/user.jpg')}}" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Bem Vindo,</small>
-                                    Usuario
+                                    {{ Auth::user()->name }}
                                 </span>
 
                                 <i class="ace-icon fa fa-caret-down"></i>
@@ -307,7 +310,7 @@
                                 <li class="divider"></li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('admin.logout') }}">
                                         <i class="ace-icon fa fa-power-off"></i>
                                         Sair
                                     </a>
@@ -318,3 +321,5 @@
                 </div>
             </div><!-- /.navbar-container -->
         </div>
+
+

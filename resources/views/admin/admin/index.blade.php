@@ -6,23 +6,25 @@
 
  
 <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
-                                <a class="active"">Página Inicial</a>
+                                <a href="{{ route('admin.principal') }}">Página Inicial</a>
                             </li>
 
-                           <!--  <li>
-                                <a href="#">Other Pages</a>
+                            <li>
+                                <a class="active" >Cadastro de Funcionários </a>
                             </li>
-                            <li class="active">Blank Page</li> -->
+                             
                         </ul><!-- /.breadcrumb -->
 
                          
  </div>
 
- <br>
-    <p>Seja bem vindo, {{ Auth::user()->name }}</p>
+   <h2> Cadastros de Funcionários </h2>
+
+ {{ $admins }}
 
 
 @endsection
