@@ -27,6 +27,8 @@
         <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
         <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 
+         <link href="{{asset('util/sweetalert/dist/sweetalert.css')}}" rel="stylesheet">
+
         <!--[if lte IE 9]>
           <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
         <![endif]-->
@@ -105,6 +107,10 @@
         <!-- ace scripts -->
         <script src="assets/js/ace-elements.min.js"></script>
         <script src="assets/js/ace.min.js"></script>
+
+        
+        
+         <script src="{{asset('util/sweetalert/dist/sweetalert.min.js')}}"></script>
 
         <!-- inline scripts related to this page -->
     </body>

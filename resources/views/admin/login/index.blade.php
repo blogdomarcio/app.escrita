@@ -64,18 +64,19 @@
 
                                     <div class="space-6"></div>
 
-                                    <form>
+                                    <form method="POST" role="form" action="{{ route('admin.login') }}">
+                                     {!! csrf_field() !!}
                                         <fieldset>
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="mail" class="form-control" id="email" placeholder="Usuário" />
+															<input type="text" id="username" name="username" class="form-control" id="email" placeholder="Usuário" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
                                             </label>
 
                                             <label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" id="password" placeholder="Senha" />
+															<input type="password" name="password" id="password" class="form-control" id="password" placeholder="Senha" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
                                             </label>
@@ -88,7 +89,7 @@
                                                     <span class="lbl"> Lembrar </span>
                                                 </label>
 
-                                                <button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                                     <i class="ace-icon fa fa-key"></i>
                                                     <span class="bigger-110">Acessar</span>
                                                 </button>
@@ -163,7 +164,7 @@
                                             </label>
 
                                             <div class="clearfix">
-                                                <button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+                                                <button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
                                                     <i class="ace-icon fa fa-lightbulb-o"></i>
                                                     <span class="bigger-110">Envie-me!</span>
                                                 </button>
