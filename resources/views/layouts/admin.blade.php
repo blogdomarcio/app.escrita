@@ -21,6 +21,9 @@
         <!-- ace styles -->
         <link rel="stylesheet" href="{{asset('assets/css/ace.min.css')}}" class="ace-main-stylesheet" id="main-ace-style" />
 
+
+        @include('sweet::alert')
+
         <!--[if lte IE 9]>
             <link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
         <![endif]-->
@@ -92,11 +95,16 @@
 
         <!-- ace scripts -->
         <script src="{{asset('assets/js/ace-elements.min.js')}}"></script>
+        
         <script src="{{asset('assets/js/ace.min.js') }}"></script>
+
+        <script src="{{asset('js/init.js') }}"></script>
 
         
         
          <script src="{{asset('util/sweetalert/dist/sweetalert.min.js')}}"></script>
+
+          @include('sweet::alert')
 
         <!-- inline scripts related to this page -->
     </body>

@@ -544,8 +544,9 @@
                                 <!-- PAGE CONTENT BEGINS -->
                                  @include('layouts.admin.tema') 
                                 
-                                <main>                
-                                               @yield('content')
+                                <main> 
+
+                               @yield('content')
 
                                </main>              
                                 <!-- PAGE CONTENT ENDS -->
